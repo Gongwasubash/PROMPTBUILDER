@@ -2,9 +2,6 @@
   command = "node build-config.js"
   publish = "."
 
-[build.environment]
-  GROQ_API_KEY = ""
-
 [[headers]]
   for = "/*"
   [headers.values]
