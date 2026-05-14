@@ -147,18 +147,28 @@
       font-weight: 500;
       color: var(--accent);
       letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: all .15s;
     }
+    .hero-badge:hover { background: rgba(245,158,11,0.15); border-color: var(--accent); }
+    .hero-badge.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .hero { padding: 2rem 0 1.5rem; }
-      .hero-tagline { font-size: 1.2rem; }
-      .hero-badge { font-size: 0.72rem; padding: 4px 12px; }
+      .hero-tagline { font-size: 1.15rem; }
+      .hero-badge { font-size: 0.75rem; padding: 5px 12px; }
     }
 
-    @media (max-width: 480px) {
-      .hero { padding: 1.5rem 0 1.25rem; }
-      .hero-tagline { font-size: 1rem; }
-      .hero-badge { font-size: 0.68rem; padding: 3px 10px; }
+    @media (max-width: 540px) {
+      .hero { padding: 1.25rem 0 1rem; }
+      .hero-tagline { font-size: 0.95rem; margin-bottom: .75rem; }
+      .hero-badge { font-size: 0.68rem; padding: 4px 10px; }
+      .hero-badges { gap: 0.4rem; }
+    }
+
+    @media (max-width: 420px) {
+      .hero-tagline { font-size: 0.85rem; }
+      .hero-badge { font-size: 0.6rem; padding: 3px 8px; border-radius: 14px; }
     }
 
     /* ─── TABS ─── */
@@ -447,7 +457,8 @@
       textarea { font-size: 14px; min-height: 90px; }
       .check-grid { grid-template-columns: 1fr; }
       .chips { gap: .3rem; }
-      .chip { font-size: .7rem; padding: 3px 9px; }
+      .chip { font-size: .7rem; padding: 5px 10px; min-height: 32px; }
+      .check-item { padding: 10px 12px; }
       .video-box { padding: .75rem; }
       .forge-btn { max-width: 100%; }
       .output-wrap .inner { padding-top: 1rem; padding-bottom: 1rem; }
@@ -507,9 +518,9 @@
       <div class="inner">
         <p class="hero-tagline">Forge the perfect prompt for every platform</p>
         <div class="hero-badges">
-          <span class="hero-badge">🖼 Image Generator</span>
-          <span class="hero-badge">▶ Video Generator</span>
-          <span class="hero-badge">⌘ App Builder</span>
+          <span class="hero-badge" data-tab="image">🖼 Image Generator</span>
+          <span class="hero-badge" data-tab="video">▶ Video Generator</span>
+          <span class="hero-badge" data-tab="dev">⌘ App Builder</span>
         </div>
       </div>
     </section>
@@ -983,6 +994,8 @@
     function switchTab(tab) {
       tabBtns.forEach(b => b.classList.remove('active'));
       document.querySelector(`.tab[data-tab="${tab}"]`).classList.add('active');
+      document.querySelectorAll('.hero-badge').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.hero-badge[data-tab="${tab}"]`).classList.add('active');
       [imagePanel, videoPanel, devPanel].forEach(p => p.classList.remove('active'));
       if (tab === 'image') imagePanel.classList.add('active');
       if (tab === 'video') videoPanel.classList.add('active');
@@ -990,6 +1003,9 @@
     }
 
     tabBtns.forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+    document.querySelectorAll('.hero-badge').forEach(badge =>
+      badge.addEventListener('click', () => switchTab(badge.dataset.tab))
+    );
 
     // System Prompt Builder
     function buildSystemPrompt(platform) {
