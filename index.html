@@ -40,8 +40,10 @@
   </script>
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8807077609208230" crossorigin="anonymous"></script>
+  <script async src="https://fundingchoicesmessages.google.com/i/pub-8807077609208230?ers=1" crossorigin="anonymous"></script>
+  <script>(function(){function signalGooglefcPresent(){if(!window.frames['googlefcPresent']){if(document.body){const iframe=document.createElement('iframe');iframe.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px';iframe.style.display='none';iframe.name='googlefcPresent';document.body.appendChild(iframe)}else{setTimeout(signalGooglefcPresent,0)}}}signalGooglefcPresent()})()</script>
   <script src="config.js"></script>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F59E0B'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='20' font-weight='bold' fill='%230A0A0A' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F59E0B'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='20' font-weight='bold' fill='%23FFFFFF' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
   <link rel="canonical" href="https://promptbuilder.netlify.app">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,20 +56,20 @@
     }
 
     :root {
-      --bg: #080808;
-      --bg-top: #0D0D0D;
-      --bg-card: #111111;
-      --bg-input: #0A0A0A;
-      --border: #1A1A1A;
-      --border-light: #222;
-      --text: #E5E5E5;
-      --text-dim: #666;
-      --text-muted: #888;
+      --bg: #FAFAFA;
+      --bg-top: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-input: #F5F5F5;
+      --border: #E5E5E5;
+      --border-light: #D4D4D4;
+      --text: #1A1A1A;
+      --text-dim: #888;
+      --text-muted: #555;
       --accent: #F59E0B;
-      --accent-hover: #FBBF24;
-      --accent-glow: rgba(245,158,11,0.12);
-      --accent-soft: rgba(245,158,11,0.06);
-      --danger: #ef4444;
+      --accent-hover: #D97706;
+      --accent-glow: rgba(245,158,11,0.15);
+      --accent-soft: rgba(245,158,11,0.08);
+      --danger: #dc2626;
     }
 
     body {
@@ -205,18 +207,18 @@
     }
     .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .chip {
-      padding: 5px 12px; background: #111;
+      padding: 5px 12px; background: var(--bg-card);
       border: 1px solid var(--border); border-radius: 6px;
       color: var(--text-muted); font: inherit; font-size: 0.8rem;
       cursor: pointer; transition: all .12s;
     }
-    .chip:hover { border-color: #333; color: var(--text); }
+    .chip:hover { border-color: var(--border-light); color: var(--text); }
     .chip.selected { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
 
     /* ─── VIDEO OPTIONS ─── */
     .video-box {
       margin-top: 0.5rem; padding: 1rem;
-      background: #0C0C0C; border: 1px solid var(--border);
+      background: var(--bg-input); border: 1px solid var(--border);
       border-radius: 10px;
     }
     .dialog-input {
@@ -239,17 +241,17 @@
     }
     .check-item {
       display: flex; align-items: center; gap: 0.6rem;
-      padding: 8px 12px; background: #111;
+      padding: 8px 12px; background: var(--bg-card);
       border: 1px solid var(--border); border-radius: 8px;
       cursor: pointer; transition: all .12s; min-height: 40px;
     }
-    .check-item:hover { border-color: #333; }
+    .check-item:hover { border-color: var(--border-light); }
     .check-item:has(input:checked) {
       border-color: rgba(245,158,11,0.5); background: var(--accent-soft);
     }
     .check-item input[type="checkbox"] {
       appearance: none; width: 16px; height: 16px;
-      background: var(--bg); border: 1px solid #333;
+      background: var(--bg); border: 1px solid var(--border-light);
       border-radius: 4px; cursor: pointer; position: relative; flex-shrink: 0;
     }
     .check-item input:checked { background: var(--accent); border-color: var(--accent); }
@@ -296,7 +298,7 @@
     #output { display: flex; flex-direction: column; gap: .85rem; }
 
     .out-card {
-      background: #111; border: 1px solid var(--border);
+      background: var(--bg-card); border: 1px solid var(--border);
       border-radius: 10px; padding: 1rem;
       box-shadow: 0 -1px 0 0 var(--accent-glow) inset;
       animation: fadeUp .25s ease forwards; opacity: 0; transform: translateY(10px);
@@ -327,7 +329,7 @@
       border-radius: 6px; padding: .85rem; overflow-x: auto;
     }
     .prompt-block pre {
-      font: 13px/1.65 'JetBrains Mono', monospace; color: #D4D4D4;
+      font: 13px/1.65 'JetBrains Mono', monospace; color: var(--text);
       white-space: pre-wrap; word-break: break-word; margin: 0;
     }
 
@@ -339,7 +341,7 @@
 
     /* ─── DEV OUTPUT ─── */
     .dev-card {
-      background: #111; border: 1px solid var(--border); border-radius: 10px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
       padding: 1rem; box-shadow: 0 -1px 0 0 var(--accent-glow) inset;
       animation: fadeUp .25s ease forwards; opacity: 0; transform: translateY(10px);
     }
@@ -361,13 +363,13 @@
       border-radius: 6px; padding: .85rem;
     }
     .scroll-block pre {
-      font: 13px/1.65 'JetBrains Mono', monospace; color: #D4D4D4;
+      font: 13px/1.65 'JetBrains Mono', monospace; color: var(--text);
       white-space: pre-wrap; word-break: break-word; margin: 0;
     }
 
     .mini-cards { display: flex; flex-direction: column; gap: .75rem; }
     .mini-card {
-      background: #111; border: 1px solid var(--border);
+      background: var(--bg-card); border: 1px solid var(--border);
       border-radius: 8px; padding: .75rem;
       box-shadow: 0 -1px 0 0 var(--accent-glow) inset;
       animation: fadeUp .25s ease forwards; opacity: 0; transform: translateY(10px);
@@ -385,7 +387,7 @@
       border-radius: 6px; padding: .65rem;
     }
     .mini-block pre {
-      font: 12px/1.55 'JetBrains Mono', monospace; color: #D4D4D4;
+      font: 12px/1.55 'JetBrains Mono', monospace; color: var(--text);
       white-space: pre-wrap; word-break: break-word; margin: 0;
     }
     .mini-acts { display: flex; gap: .35rem; }
@@ -409,7 +411,7 @@
     footer { border-top: 1px solid var(--border); }
     footer .inner {
       padding-top: 1.5rem; padding-bottom: 1.5rem;
-      text-align: center; font-size: 11px; color: #333;
+      text-align: center; font-size: 11px; color: var(--text-dim);
     }
 
     .hidden { display: none !important; }
